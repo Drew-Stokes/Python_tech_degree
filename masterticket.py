@@ -6,6 +6,11 @@ while tickets_remaining >= 1:
     print("There are {} tickets remaining.".format(tickets_remaining))
     name = input("what is your name? ")
     num_tickets = input("How many tickets would you like, {}?  ".format(name))
+    # Expect a ValueError to happen and handle it appropriatly..
+    try:
+        num_tickets - int(num_tickets)
+    except ValueError:
+        print("Oh no, we ran into an issue. Please try again")
     num_tickets = int(num_tickets)
     amount_due = num_tickets * TICKET_PRICE
     print("The total due is ${}".format(amount_due))
